@@ -6,28 +6,11 @@ import Container from './Container'
 import TodoItem from "./TodoItem"
 import Types from "./Types"
 const Content = () => {
-  const defaultTodos = JSON.parse(localStorage.getItem("todos")) || [
-    {
-      id: 1,
-      complete: false,
-      title: "Lorem ipsum dolor sit amet consectetur.",
-    },
-    {
-      id: 2,
-      complete: false,
-      title: "Lorem ipsum dolor sit amet consectetur.",
-    },
-    {
-      id: 3,
-      complete: false,
-      title: "Lorem ipsum dolor sit amet consectetur.",
-    },
-    {
-      id: 4,
-      complete: false,
-      title: "Lorem ipsum dolor sit amet consectetur.",
-    },
-  ]
+  if(!JSON.parse(localStorage.getItem("todos"))){
+    localStorage.setItem("todos", "[]")
+  }
+
+  const defaultTodos = JSON.parse(localStorage.getItem("todos")) 
 
   const [todoData, setTodoData] = useState(defaultTodos)
   const [formValue, setFormValue] = useState("")
