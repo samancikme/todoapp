@@ -23,7 +23,7 @@ const App = () => {
             <div>
                 <Header localMode={mode} setAllColorMode={setAllColorMode} />
                 <Content />
-                <p className=' z-[10000] dark:text-colorLight text-colorDark absolute bottom-[15px] w-[100%] text-center'>Coded by <a className='text-blue-700' href="https://t.me/samancik_me">Samandar</a></p>
+                <p className=' z-[10000] dark:text-colorLight text-colorDark absolute bottom-[5px] md:bottom-[15px] w-[100%] text-center'>Coded by <a className='text-blue-700' href="https://t.me/samancik_me">Samandar</a></p>
             </div>
         </div>
     )
