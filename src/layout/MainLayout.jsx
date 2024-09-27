@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ModalAlert = () => {
+const MainLayout = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ModalAlert = () => {
   )
 }
 
-export default ModalAlert
+export default MainLayout

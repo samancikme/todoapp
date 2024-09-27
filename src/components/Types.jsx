@@ -4,14 +4,14 @@ const Types = ({ className, setTodoData }) => {
 
 
     const allData = JSON.parse(localStorage.getItem("todos"))
-
+    let todo = allData.slice(0) 
     const [activeButton, setActiveButton] = useState("All")
 
-    const activeTodos = () => {
+    const activeTodos = () => { 
         setActiveButton("Active")
         setTodoData(prev => {
-            const activeTodo = allData.filter(prevItem => {
-                if(!prevItem.complete){
+            const activeTodo = todo.filter(prevItem => {
+                if (!prevItem.complete) {
                     return prevItem
                 }
             })
@@ -22,6 +22,7 @@ const Types = ({ className, setTodoData }) => {
     const allTodos = () => {
         setActiveButton("All")
         setTodoData(prev => {
+            console.log("all")
             return allData
         })
     }
@@ -29,9 +30,9 @@ const Types = ({ className, setTodoData }) => {
     const complatedTodos = () => {
         setActiveButton("Complated")
         setTodoData(prev => {
-            const activeTodo = allData.filter(prevItem => {
-                if(prevItem.complete){
-                    console.log(prevItem)
+            const activeTodo = todo.filter(prevItem => {
+                if (prevItem.complete) {
+                    console.log("c")
                     return prevItem
                 }
             })

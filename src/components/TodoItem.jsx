@@ -4,8 +4,17 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BiTrashAlt } from "react-icons/bi"
 import { BiCircle } from "react-icons/bi"
 import React, { useState } from 'react'
+import { useSelector } from "react-redux";
 
 const TodoItem = ({ item, setTodoData }) => {
+
+
+    const todoTitle = useSelector(state => state)
+
+
+    console.log(todoTitle)
+
+
     const [edit, setEditMode] = useState(false)
     const [formValue, setFormValue] = useState(item.title) 
 
@@ -22,6 +31,7 @@ const TodoItem = ({ item, setTodoData }) => {
         setTodoData(prev => {
             const complatedTodos = prev.map(prevItem => {
                 if (prevItem.id === item.id) {
+                    console.log("1")
                     return {
                         ...prevItem,
                         complete: !prevItem.complete

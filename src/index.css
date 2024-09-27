@@ -8,23 +8,47 @@
 
 
 
-.todo-content{
-    @apply  flex justify-center items-center flex-col bg-[#ffffff00] backdrop-blur-3xl shadow-2xl rounded-xl overflow-hidden w-[100%] py-2 px-1 dark:shadow-shDark 
+.todo-content {
+  @apply flex justify-center items-center flex-col bg-[#ffffff00] backdrop-blur-3xl shadow-2xl rounded-xl overflow-hidden w-[100%] py-2 px-1 dark:shadow-shDark
 }
 
 
 ::-webkit-scrollbar {
-    width: 0;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* styles.css */
+.image {
+  position: absolute;
+  top: 0;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  /* Silliq o'tish */
+  z-index: 1;
+  /* Ustki rasmni ko'rsatish uchun */
+}
+
+.image-hidden {
+  opacity: 0;
+  /* Ko'rinmaydigan */
+}
+
+.image-visible {
+  opacity: 1;
+  /* Ko'rinadigan */
+}

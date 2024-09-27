@@ -1,16 +1,20 @@
-import { FaRegSadCry } from "react-icons/fa"; 
+import { FaRegSadCry } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai"
 import { v4 as uuidv4 } from 'uuid'
 import React, { useState } from 'react'
 import Container from './Container'
 import TodoItem from "./TodoItem"
 import Types from "./Types"
+import { useSelector } from "react-redux";
 const Content = () => {
-  if(!JSON.parse(localStorage.getItem("todos"))){
+
+  const state = useSelector(state => state.todos)
+  console.log(state)
+  if (!JSON.parse(localStorage.getItem("todos"))) {
     localStorage.setItem("todos", "[]")
   }
 
-  const defaultTodos = JSON.parse(localStorage.getItem("todos")) 
+  const defaultTodos = JSON.parse(localStorage.getItem("todos"))
 
   const [todoData, setTodoData] = useState(defaultTodos)
   const [formValue, setFormValue] = useState("")
@@ -74,12 +78,12 @@ const Content = () => {
         <div className="flex flex-col gap-6 items-center justify-center w-[100%] h-[60vh]">
           <div className="todo-content relative">
             <div className=" min-h-[60vh] overflow-y-scroll w-[100%] mm:py-3 py-10">
-              {todoData.length >0 ? todoData.map(item => (
-                <TodoItem item={item} key={item.id} setTodoData={setTodoData} formValue={formValue} setFormValue={setFormValue}/>
-              )) : 
-              <div className="flex justify-center items-center h-[100%] gap-3 text-[20px] opacity-75">Nothing yet no <FaRegSadCry  /></div>}
+              {todoData.length > 0 ? todoData.map(item => (
+                <TodoItem item={item} key={item.id} setTodoData={setTodoData} formValue={formValue} setFormValue={setFormValue} />
+              )) :
+                <div className="flex justify-center items-center h-[100%] gap-3 text-[20px] opacity-75">Nothing yet no <FaRegSadCry /></div>}
             </div>
-            <div className=" absolute bottom-0 bg-colorLight flex dark:bg-colorDark z-1 justify-between items-center w-[100%] px-4 py-5 text-[16px]">
+            <div className=" absolute bottom-0 bg-colorLight flex dark:bg-colorDark z-1 duration-500 justify-between items-center w-[100%] px-4 py-5 text-[16px]">
               <div className="opacity-50 hover:opacity-100 dark:text-white font-light text-center mm:text-start cursor-default text-[14px] lg:w-[30%] w-[50%] sm:w-[20%]">
                 {todoData.length} item left
               </div>
@@ -88,14 +92,14 @@ const Content = () => {
                 className={"mm:flex hidden w-[50%]"} />
               <button
                 onClick={() => deleteTodo()}
-                className="cursor-pointer text-[14px] active:scale-95 duration-200 hover:opacity-100 dark:text-white w-[50%] sm:w-[30%] lg:w-[30%]">
+                className="cursor-pointer text-[14px] active:scale-95 duration-500 hover:opacity-100 dark:text-white w-[50%] sm:w-[30%] lg:w-[30%]">
                 Clear Completed
               </button>
             </div>
           </div>
           <Types
             setTodoData={setTodoData}
-            className={"flex mm:hidden shadow-lg w-[100%] gap-6 p-2 bg-[#cdcdcdb4] rounded-xl dark:bg-[#a9a9a910] dark:backdrop-blur"} />
+            className={"flex mm:hidden shadow-lg w-[100%] gap-6 p-2 bg-[#cdcdcdb4] rounded-xl duration-500 dark:bg-[#a9a9a910] dark:backdrop-blur"} />
         </div>
       </Container>
     </div>

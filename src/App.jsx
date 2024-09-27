@@ -19,7 +19,7 @@ const App = () => {
     document.documentElement.classList.toggle('dark', mode === 'dark')
 
     return (
-        <div className='dark:bg-colorDark bg-colorLight text-black dark:text-white  duration-500 w-[100%] h-[100vh]'>
+        <div className='dark:bg-colorDark bg-colorLight text-black dark:text-white duration-500 w-[100%] h-[100vh]'>
             <div>
                 <Header localMode={mode} setAllColorMode={setAllColorMode} />
                 <Content />
